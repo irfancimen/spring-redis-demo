@@ -1,0 +1,5 @@
+# allow all ip to connection
+bind 0.0.0.0
+
+# max. of waiting time the node can be reachable. if exceed the that time, it will be failed over by its replicas
+cluster-node-timeout 2000 <milliseconds>

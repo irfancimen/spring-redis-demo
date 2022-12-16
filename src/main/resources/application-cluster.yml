@@ -1,0 +1,14 @@
+spring:
+#  cache:
+#    type: redis
+#    cache-names: demo-redis-cache
+  redis:
+    cluster:
+      nodes: localhost:8000, localhost:8001, localhost:8002
+      max-redirects: 2
+    lettuce:
+      cluster:
+        refresh:
+          period: 60
+          adaptive: true
+    timeout: 60

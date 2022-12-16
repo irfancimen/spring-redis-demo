@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  master1:
+    image: redis
+    container_name: "master1"
+    ports:
+      - "6399:6399"
+    volumes:
+      - "/Users/irfan.cimen/Desktop/redis/data/master:/data/"
+      - "/Users/irfan.cimen/Desktop/redis/config/master.conf:/usr/local/etc/redis/redis.conf"
+    command: "redis-server --include /usr/local/etc/redis/redis.conf"
+  slave1:
+    image: redis
+    container_name: "slave1"
+    ports:
+      - "6380:6380"
+    volumes:
+      - "/Users/irfan.cimen/Desktop/redis/data/slave:/data/"
+      - "/Users/irfan.cimen/Desktop/redis/config/slave1.conf:/usr/local/etc/redis/redis.conf"
+    command: "redis-server --include /usr/local/etc/redis/redis.conf"
+  slave2:
+    image: redis
+    container_name: "slave2"
+    ports:
+      - "6381:6381"
+    volumes:
+      - "/Users/irfan.cimen/Desktop/redis/data/slave:/data/"
+      - "/Users/irfan.cimen/Desktop/redis/config/slave2.conf:/usr/local/etc/redis/redis.conf"
+    command: "redis-server --include /usr/local/etc/redis/redis.conf"
+  sentinel1:
+    image: redis
+    container_name: "sentinel1"
+    ports:
+      - "26379:26379"
+    volumes:
+      - "/Users/irfan.cimen/Desktop/redis/data/sentinel:/data/"
+      - "/Users/irfan.cimen/Desktop/redis/config/sentinel1.conf:/etc/sentinel.conf"
+    command: "redis-server /etc/sentinel.conf --sentinel"
+  sentinel2:
+    image: redis
+    container_name: "sentinel2"
+    ports:
+      - "26380:26380"
+    volumes:
+      - "/Users/irfan.cimen/Desktop/redis/data/sentinel:/data/"
+      - "/Users/irfan.cimen/Desktop/redis/config/sentinel2.conf:/etc/sentinel.conf"
+    command: "redis-server /etc/sentinel.conf --sentinel"
+  sentinel3:
+    image: redis
+    container_name: "sentinel3"
+    ports:
+      - "26381:26381"
+    volumes:
+      - "/Users/irfan.cimen/Desktop/redis/data/sentinel:/data/"
+      - "/Users/irfan.cimen/Desktop/redis/config/sentinel3.conf:/etc/sentinel.conf"
+    command: "redis-server /etc/sentinel.conf --sentinel"

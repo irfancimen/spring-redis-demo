@@ -1,0 +1,17 @@
+GET http://localhost:8080/addDummy
+Accept: application/json
+
+###
+GET http://localhost:8080/basic/?key=deneme
+Accept: application/json
+
+###
+GET http://localhost:8080/?key=suxev
+Accept: application/json
+
+###
+GET http://localhost:8080/sentinel?key=mrtfw
+
+
+###
+http://localhost:8080/all

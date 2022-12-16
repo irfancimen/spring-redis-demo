@@ -1,0 +1,10 @@
+spring.cache:
+  type: redis
+  cache-names: demo-redis-cache
+  redis:
+    host: localhost
+    port: 6379
+    time-to-live: 600000
+redis:
+  topic:
+    name: testTopic
